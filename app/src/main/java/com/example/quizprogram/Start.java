@@ -15,10 +15,10 @@ import java.util.Random;
 import java.text.DecimalFormat;
 
 public class Start extends AppCompatActivity {
-    Button buttonfi;
-    Button buttonch1;
-    Button buttonch2;
-    Button buttonch3;
+    Button buttonfi;   // button finish
+    Button buttonch1;  // button chosse answer 1
+    Button buttonch2;   // button chosse answer 2
+    Button buttonch3;   // button chosse answer 3
     Button button;
     Button buttonbackhome;
     TextView score;
@@ -116,6 +116,8 @@ public class Start extends AppCompatActivity {
         setButtonch1();
         setButtonch2();
         back();
+        button=(Button) findViewById(R.id.btnnext);
+        button.setEnabled(false);
 
         score= (TextView) findViewById(R.id.Score);
         score.setText("0");
@@ -147,8 +149,8 @@ public class Start extends AppCompatActivity {
               scoretext=(TextView) findViewById(R.id.scoretext);
               scoretext.setVisibility( View.INVISIBLE);
                 String str=Integer.toString(countscore);
-                DecimalFormat format= new DecimalFormat("#.##");
-                double pass =(countscore/countnext)*100;
+                DecimalFormat format= new DecimalFormat("#,##");
+                double pass =((countscore/countnext)*100);
                 format.format(pass);
                 String strpass = Double.toString(pass);
               finishT.setText("  CONGRATE \n\n Your score " +str + "\n" +"Pass " +strpass +"%");
@@ -163,6 +165,8 @@ public class Start extends AppCompatActivity {
         buttonch1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button=(Button) findViewById(R.id.btnnext);
+                button.setEnabled(true);
                 next=1;
                 if( button1[count].equals( Correct[count])){
                     click();
@@ -184,6 +188,8 @@ public class Start extends AppCompatActivity {
         buttonch3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button=(Button) findViewById(R.id.btnnext);
+                button.setEnabled(true);
                 next=1;
                 if( button3[count].equals( Correct[count])){
                     click();
@@ -207,8 +213,12 @@ public class Start extends AppCompatActivity {
         buttonch2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button=(Button) findViewById(R.id.btnnext);
+                button.setEnabled(true);
                 next=1;
                 if( button2[count].equals(Correct[count])){
+                    button=(Button) findViewById(R.id.btnnext);
+                    button.setBackgroundDrawable(getResources().getDrawable(R.drawable.help));
                     click();
                     buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
                     countscore++;
@@ -216,7 +226,6 @@ public class Start extends AppCompatActivity {
                     scoreview();
                 }else {
                     click();
-                    buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
                 }
                 buttonch1.setEnabled(false);
                 buttonch3.setEnabled(false);
@@ -229,6 +238,8 @@ public class Start extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                button=(Button) findViewById(R.id.btnnext);
+                button.setEnabled(false);
                 if(next==1){
                     click();
                     next=0;
