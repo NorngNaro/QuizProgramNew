@@ -40,7 +40,7 @@ public class Start extends AppCompatActivity {
             "Who is known as the founder of C language?",
             "How would you insert pre-written code into a current program?",
             "In a C program, the first statement that will be executed is:"};
-    //dfghjkdcvbgnhmrxdcfvgbhnjmdfghjdfghxecfvgbh
+    //dfghjkdcvbgnhmrxdcfvgbhnjmdfghjdfghxecfvgbhjhdffjhjh
     String [] Correct = {" 1 ",
             " C " ,
             " 1972 " ,
