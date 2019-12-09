@@ -9,7 +9,10 @@ import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.text.Format;
 import java.util.Random;
+import java.text.DecimalFormat;
 
 public class Start extends AppCompatActivity {
     Button buttonfi;
@@ -21,10 +24,12 @@ public class Start extends AppCompatActivity {
     TextView score;
     TextView quiz;
     TextView finishT;
+    TextView scoretext;
     MediaPlayer click;
     Random random = new Random();
     int count =random.nextInt(14);
     int countscore=0;
+    double countnext=1;
     int next ;
     String [] Quiz = {"How many main () function we can have in our project?",
             "Which programming language is more faster among these?",
@@ -40,7 +45,7 @@ public class Start extends AppCompatActivity {
             "Who is known as the founder of C language?",
             "How would you insert pre-written code into a current program?",
             "In a C program, the first statement that will be executed is:"};
-    //dfghjkdcvbgnhmrxdcfvgbhnjmdfghjdfghxecfvgbhjhdffjhjh
+
     String [] Correct = {" 1 ",
             " C " ,
             " 1972 " ,
@@ -139,8 +144,14 @@ public class Start extends AppCompatActivity {
               button=(Button)findViewById(R.id.btnnext);
               button.setVisibility(View.INVISIBLE);
               score.setVisibility(View.INVISIBLE);
+              scoretext=(TextView) findViewById(R.id.scoretext);
+              scoretext.setVisibility( View.INVISIBLE);
                 String str=Integer.toString(countscore);
-              finishT.setText("  CONGRATE \n\n Your score " +str);
+                DecimalFormat format= new DecimalFormat("#.##");
+                double pass =(countscore/countnext)*100;
+                format.format(pass);
+                String strpass = Double.toString(pass);
+              finishT.setText("  CONGRATE \n\n Your score " +str + "\n" +"Pass " +strpass +"%");
               buttonbackhome=(Button)findViewById(R.id.btnbackhome);
               buttonbackhome.setVisibility(View.VISIBLE);
 
@@ -157,6 +168,7 @@ public class Start extends AppCompatActivity {
                     click();
                     buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
                     countscore++;
+                    countnext++;
                     scoreview();
                 }else {
                     click();
@@ -177,6 +189,7 @@ public class Start extends AppCompatActivity {
                     click();
                     buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
                     countscore++;
+                    countnext++;
                     scoreview();
                 }else {
                     click();
@@ -199,6 +212,7 @@ public class Start extends AppCompatActivity {
                     click();
                     buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
                     countscore++;
+                    countnext++;
                     scoreview();
                 }else {
                     click();
@@ -261,4 +275,3 @@ public class Start extends AppCompatActivity {
             }
         });
 }}
-// hhhh
