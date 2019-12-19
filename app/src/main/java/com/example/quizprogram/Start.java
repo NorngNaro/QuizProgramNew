@@ -100,7 +100,7 @@ public class Start extends AppCompatActivity {
             "int arr[] = int [5] new",
             ".class", "JDK",
             "“Hello\\nWorld”",
-            " Dennis Ritchie", ".#read", "The first executable statement after the comment /* start here*/"};
+            "Dennis Ritchie", ".#read", "The first executable statement after the comment /* start here*/"};
 
 
     @Override
