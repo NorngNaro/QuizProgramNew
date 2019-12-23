@@ -4,149 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/hhhh"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnExit"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/help"
-        android:fontFamily="sans-serif-black"
-        android:shadowColor="#ff6666"
-        android:text="Exit"
-        android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
-    <Button
         android:id="@+id/btnStart"
-        android:layout_width="232dp"
+        android:layout_width="258dp"
         android:layout_height="77dp"
         android:layout_marginTop="364dp"
         android:background="@drawable/start"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Start"
+        android:text="Get Started Now"
+        android:visibility="visible"
         android:textAllCaps="false"
-        android:textColor="#FFF"
-        android:textSize="50dp"
-
+        android:textColor="@color/colorText"
+        android:textSize="29dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        />
 
     <Button
         android:id="@+id/btnhelp"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:background="@drawable/help"
+        android:background="@drawable/start"
         android:text="Help"
         android:textAllCaps="false"
-        android:textColor="#ffff"
+        android:textColor="@color/colorText"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.959" />
 
     <Button
-        android:id="@+id/btncplus"
-        android:layout_width="196dp"
-        android:layout_height="55dp"
-        android:background="@drawable/button"
-        android:text="C++ "
-        android:textSize="20dp"
+        android:id="@+id/btnLogin"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/start"
+        android:text="Login"
         android:textAllCaps="false"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/btnStart"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnStart"
-        app:layout_constraintVertical_bias="0.517" />
-
-    <Button
-        android:id="@+id/btnjava"
-        android:layout_width="196dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button"
-        android:text="Java"
-        android:textSize="20dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btncplus" />
-
-    <Button
-        android:id="@+id/btnc"
-        android:layout_width="196dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/button"
-        android:text="C "
-        android:textAllCaps="false"
-        android:textSize="20dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/btncplus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textstyle"
-        android:layout_width="238dp"
-        android:layout_height="303dp"
-        android:background="@drawable/topbutton"
-        android:text=""
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/btnjava"
-        app:layout_constraintEnd_toEndOf="@+id/btncplus"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/btncplus"
-        app:layout_constraintTop_toTopOf="@+id/btnc"
-        app:layout_constraintVertical_bias="0.504" />
-
-    <Button
-        android:id="@+id/btnx"
-        android:layout_width="32dp"
-        android:layout_height="28dp"
-        android:background="@drawable/setwrong"
-        android:gravity="center"
-        android:text="X"
-        android:textColor="#ffff"
-        android:textSize="20dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/btnc"
-        app:layout_constraintEnd_toEndOf="@+id/textstyle"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textstyle"
-        app:layout_constraintTop_toTopOf="@+id/textstyle"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/loading"
-        android:layout_width="417dp"
-        android:layout_height="730dp"
-        android:visibility="invisible"
+        android:textColor="@color/colorText"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.925"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.959" />
 
     <TextView
         android:id="@+id/time"
@@ -154,12 +66,68 @@
         android:layout_height="40dp"
         android:text=""
         android:textColor="#ffff"
-        app:layout_constraintBottom_toTopOf="@+id/textstyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.076" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="400dp"
+        android:layout_height="304dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74">
+
+        <Button
+            android:id="@+id/btnjava"
+            android:layout_width="280dp"
+            android:layout_height="69dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/start"
+            android:text="Java Programing "
+            android:textAllCaps="false"
+            android:textSize="30dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.558"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnc"
+            android:layout_width="280dp"
+            android:layout_height="69dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/start"
+            android:text="C programing"
+            android:textAllCaps="false"
+            android:textSize="30dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/btncplus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.266" />
+
+        <Button
+            android:id="@+id/btncplus"
+            android:layout_width="280dp"
+            android:layout_height="69dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/start"
+            android:text="C++ Programing"
+            android:textAllCaps="false"
+            android:textSize="30dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/btnjava"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
