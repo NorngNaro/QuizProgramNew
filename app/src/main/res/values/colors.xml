@@ -7,4 +7,7 @@
     <color name="green">#34eb37</color>
     <color name = "red">#eb0514</color>
     <color name="blue"> #06104C</color>
+    <color name="ColorBackGround">#7E9BEE</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorText">#4979FE</color>
 </resources>

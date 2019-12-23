@@ -238,7 +238,6 @@ public class Start extends AppCompatActivity {
             }
         });
     }
-
     void nextq() {
         button = (Button) findViewById(R.id.btnnext);
         button.setOnClickListener(new View.OnClickListener() {
@@ -305,12 +304,10 @@ public class Start extends AppCompatActivity {
     }
     void timer(){
         countDownTimer = new CountDownTimer(30000, 1000) {
-
             public void onTick(long millisUntilFinished) {
                 time = (TextView) findViewById(R.id.time);
                 time.setText("Time: " + millisUntilFinished / 1000);
             }
-
             public void onFinish() {
                 time = (TextView) findViewById(R.id.time);
                 time.setText("Time out");
@@ -323,6 +320,7 @@ public class Start extends AppCompatActivity {
                 buttonch3.setEnabled(false);
                 button = ( Button) findViewById(R.id.btnnext);
                 button.setEnabled(true);
+
 
             }
         }.start();
