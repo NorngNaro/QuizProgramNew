@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         buttonstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonstart.setVisibility( View.INVISIBLE);
+                buttonstart.setVisibility(View.INVISIBLE);
                 buttonhelp = (Button) findViewById(R.id.btnhelp);
                 buttonhelp.setVisibility( View.INVISIBLE);
                 buttonexit =(Button) findViewById(R.id.btnExit);

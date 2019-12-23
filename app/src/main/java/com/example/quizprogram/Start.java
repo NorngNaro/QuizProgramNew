@@ -20,12 +20,14 @@ public class Start extends AppCompatActivity {
     Button buttonch3;   // button chosse answer 3
     Button button;
     Button buttonbackhome;
+    Button buttonanswer;
     TextView score;
     TextView quiz;
     TextView finishT;
     TextView scoretext;
     TextView congrate;
     TextView time;
+    TextView textanswer;
     MediaPlayer click;
     CountDownTimer countDownTimer;
     Random random = new Random();
@@ -179,6 +181,9 @@ public class Start extends AppCompatActivity {
                 } else {
                     click();
                     buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
+                    showanswer();
+                    textanswer = (TextView) findViewById(R.id.Answer);
+                    textanswer.setText( Correct[count]);
                 }
                 buttonch3.setEnabled(false);
                 buttonch2.setEnabled(false);
@@ -204,6 +209,9 @@ public class Start extends AppCompatActivity {
                 } else {
                     click();
                     buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
+                    showanswer();
+                    textanswer = (TextView) findViewById(R.id.Answer);
+                    textanswer.setText( Correct[count]);
                 }
                 buttonch2.setEnabled(false);
                 buttonch1.setEnabled(false);
@@ -232,6 +240,9 @@ public class Start extends AppCompatActivity {
                 } else {
                     click();
                     buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
+                    showanswer();
+                    textanswer = (TextView) findViewById(R.id.Answer);
+                    textanswer.setText( Correct[count]);
                 }
                 buttonch1.setEnabled(false);
                 buttonch3.setEnabled(false);
@@ -274,6 +285,16 @@ public class Start extends AppCompatActivity {
                 } else {
                     click();
                 }
+                textanswer = (TextView) findViewById(R.id.Answer);
+                textanswer.setVisibility( View.INVISIBLE);
+                buttonch1 = (Button) findViewById(R.id.btnchoose1);
+                buttonch1.setVisibility( View.VISIBLE);
+                buttonch2 = (Button) findViewById(R.id.btnchoose2);
+                buttonch2.setVisibility( View.VISIBLE);
+                buttonch3 = (Button) findViewById(R.id.btnchoose3);
+                buttonch3.setVisibility( View.VISIBLE);
+                quiz = ( TextView) findViewById(R.id.Quiz);
+                quiz.setVisibility( View.VISIBLE);
 
             }
         });
@@ -326,5 +347,28 @@ public class Start extends AppCompatActivity {
 
             }
         }.start();
+    }
+    void showanswer(){
+        buttonanswer = ( Button) findViewById(R.id.btnshowanswer);
+        buttonanswer.setVisibility( View.VISIBLE);
+
+        buttonanswer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textanswer = (TextView) findViewById(R.id.Answer);
+                textanswer.setVisibility( View.VISIBLE);
+                buttonch1 = (Button) findViewById(R.id.btnchoose1);
+                buttonch1.setVisibility( View.INVISIBLE);
+                buttonch2 = (Button) findViewById(R.id.btnchoose2);
+                buttonch2.setVisibility( View.INVISIBLE);
+                buttonch3 = (Button) findViewById(R.id.btnchoose3);
+                buttonch3.setVisibility( View.INVISIBLE);
+                quiz = ( TextView) findViewById(R.id.Quiz);
+                quiz.setVisibility( View.INVISIBLE);
+
+            }
+        });
+
+
     }
 }
