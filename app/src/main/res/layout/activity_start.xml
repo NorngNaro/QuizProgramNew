@@ -186,6 +186,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.087" />
 
+
         <Button
             android:id="@+id/btnbackhome"
             android:layout_width="136dp"
@@ -200,14 +201,99 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.67" />
+            app:layout_constraintVertical_bias="1.0" />
 
+        <TextView
+            android:id="@+id/Mark"
+            android:layout_width="41dp"
+            android:layout_height="54dp"
+            android:background="@drawable/gg"
+            android:text=""
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.972"
+            app:layout_constraintStart_toStartOf="@+id/congrate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.546" />
+
+        <TextView
+            android:id="@+id/Cross"
+            android:layout_width="41dp"
+            android:layout_height="54dp"
+            android:background="@drawable/nn"
+            android:text=""
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.972"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.579" />
+
+        <TextView
+            android:id="@+id/Mark2"
+            android:layout_width="41dp"
+            android:layout_height="54dp"
+            android:background="@drawable/gg"
+            android:text=""
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.972"
+            app:layout_constraintStart_toStartOf="@+id/congrate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.709" />
+
+        <TextView
+            android:id="@+id/Cross2"
+            android:layout_width="41dp"
+            android:layout_height="54dp"
+            android:background="@drawable/nn"
+            android:text=""
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.972"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.742" />
+
+        <TextView
+            android:id="@+id/Mark3"
+            android:layout_width="41dp"
+            android:layout_height="54dp"
+            android:background="@drawable/gg"
+            android:text=""
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.972"
+            app:layout_constraintStart_toStartOf="@+id/congrate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.872" />
+
+        <TextView
+            android:id="@+id/Cross3"
+            android:layout_width="41dp"
+            android:layout_height="54dp"
+            android:background="@drawable/nn"
+            android:text=""
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.972"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.901" />
         <TextView
             android:id="@+id/congrate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/congrate"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="51dp"
+            tools:layout_editor_absoluteY="82dp" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

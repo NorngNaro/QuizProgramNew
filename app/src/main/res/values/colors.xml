@@ -5,8 +5,8 @@
 
     <color name="colorAccent">#D81B60</color>
     <color name="Bluesky">#33ccff</color>
-    <color name="green">#34eb37</color>
-    <color name="colorLightRed">#ff4000</color>
+    <color name="green">#b3ffb3</color>
+    <color name="colorLightRed"> #ff9999</color>
     <color name = "red">#eb0514</color>
     <color name="colorForesGreen">#228B22</color>
     <color name="blue"> #06104C</color>

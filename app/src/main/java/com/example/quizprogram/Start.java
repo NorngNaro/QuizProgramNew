@@ -17,15 +17,21 @@ public class Start extends AppCompatActivity {
     Button buttonch3;   // button chosse answer 3
     Button button;
     Button buttonbackhome;
-    Button buttonanswer;
     TextView score;
     TextView quiz;
     TextView finishT;
     TextView scoretext;
     TextView congrate;
+    TextView mark;
+    TextView cross;
+    TextView mark2;
+    TextView cross2;
+    TextView mark3;
+    TextView cross3;
     TextView time;
-    TextView textanswer;
     MediaPlayer click;
+    MediaPlayer pass;
+    MediaPlayer wrong;
     CountDownTimer countDownTimer;
     Random random = new Random();
     int count = random.nextInt(14);
@@ -129,7 +135,7 @@ public class Start extends AppCompatActivity {
         buttonch3 = findViewById(R.id.btnchoose3);
         buttonch3.setText(button3[count]);
     }
-    int countButton = 0;
+   // int countButton = 0;
     void setButtonch1() {
         buttonch1 = findViewById(R.id.btnchoose1);
         buttonch1.setOnClickListener(new View.OnClickListener() {
@@ -140,27 +146,29 @@ public class Start extends AppCompatActivity {
                 next = 1;
                 countDownTimer.cancel();
                 if (button1[count].equals(Correct[count])) { // when this button is match use equal building in function.
-                    click();
-                    buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    pass();
+                    mark= (TextView) findViewById(R.id.Mark);
+                    mark.setVisibility(View.VISIBLE);
                     countnext++;
-                    if(countButton == 0)
-                        scoreview();
+                    countscore++;
+                    scoreview();
                 } else {
-                    click();
-                    buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
-                    //showanswer();
-                   // textanswer = (TextView) findViewById(R.id.Answer);
-                    //textanswer.setText( Correct[count]);
+                    wrong();
+                    cross= (TextView) findViewById(R.id.Cross);
+                    cross.setVisibility(View.VISIBLE);
                 }
 
                 //user can't chose this button again, after click button1.
+                buttonch1.setEnabled(false);
                 buttonch2.setEnabled(false);
                 buttonch3.setEnabled(false);
 
                 if (button2[count].equals(Correct[count])){
-                    buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    mark2= (TextView) findViewById(R.id.Mark2);
+                    mark2.setVisibility(View.VISIBLE);
                 }else if(button3[count].equals(Correct[count])){
-                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    mark3= (TextView) findViewById(R.id.Mark3);
+                    mark3.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -178,26 +186,27 @@ public class Start extends AppCompatActivity {
                 if (button2[count].equals(Correct[count])) {
                     button = findViewById(R.id.btnnext);
                     button.setEnabled(true);
-                    click();
-                    buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
-                   // countscore++;
+                    pass();
+                    mark2= (TextView) findViewById(R.id.Mark2);
+                    mark2.setVisibility(View.VISIBLE);
+                    countscore++;
+                    scoreview();
                     countnext++;
-                    if(countButton == 0)
-                        scoreview();
                 } else {
-                    click();
-                    buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
-                    // showanswer();
-                    // textanswer = (TextView) findViewById(R.id.Answer);
-                    //textanswer.setText( Correct[count]);
+                    wrong();
+                    cross2= (TextView) findViewById(R.id.Cross2);
+                    cross2.setVisibility(View.VISIBLE);
                 }
                 buttonch3.setEnabled(false);
+                buttonch2.setEnabled(false);
                 buttonch1.setEnabled(false);
 
                 if (button3[count].equals(Correct[count])){
-                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    mark3= (TextView) findViewById(R.id.Mark3);
+                    mark3.setVisibility(View.VISIBLE);
                 }else if(button1[count].equals(Correct[count])){
-                    buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    mark= (TextView) findViewById(R.id.Mark);
+                    mark.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -213,25 +222,29 @@ public class Start extends AppCompatActivity {
                 next = 1;
                 countDownTimer.cancel();
                 if (button3[count].equals(Correct[count])) {
-                    click();
-                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    pass();
+                    mark3= (TextView) findViewById(R.id.Mark3);
+                    mark3.setVisibility(View.VISIBLE);
                     countnext++;
-                    if(countButton == 0) // count only one time for our score.
-                        scoreview();
+                     countscore++;
+                    scoreview();
+                   /* if(countButton == 0) // count only one time for our score.
+                        scoreview();*/
                 } else {
-                    click();
-                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
-                   // showanswer();
-                   // textanswer = (TextView) findViewById(R.id.Answer);
-                    //textanswer.setText( Correct[count]);
+                    wrong();
+                    cross3= (TextView) findViewById(R.id.Cross3);
+                    cross3.setVisibility(View.VISIBLE);
                 }
                 buttonch2.setEnabled(false);
                 buttonch1.setEnabled(false);
+                buttonch3.setEnabled(false);
 
                 if (button2[count].equals(Correct[count])){
-                    buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    mark2= (TextView) findViewById(R.id.Mark2);
+                    mark2.setVisibility(View.VISIBLE);
                 }else if(button1[count].equals(Correct[count])){
-                    buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    mark= (TextView) findViewById(R.id.Mark);
+                    mark.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -243,15 +256,27 @@ public class Start extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 button = findViewById(R.id.btnnext);
                 button.setEnabled(false);
-
                 buttonch1 = findViewById(R.id.btnchoose1);
                 buttonch1.setEnabled(true);
                 buttonch2 = findViewById(R.id.btnchoose2);
                 buttonch2.setEnabled(true);
                 buttonch3 = findViewById(R.id.btnchoose3);
                 buttonch3.setEnabled(true);
+                cross= (TextView) findViewById(R.id.Cross);
+                cross.setVisibility(View.INVISIBLE);
+                mark= (TextView) findViewById(R.id.Mark);
+                mark.setVisibility(View.INVISIBLE);
+                cross2= (TextView) findViewById(R.id.Cross2);
+                cross2.setVisibility(View.INVISIBLE);
+                mark2= (TextView) findViewById(R.id.Mark2);
+                mark2.setVisibility(View.INVISIBLE);
+                cross3= (TextView) findViewById(R.id.Cross3);
+                cross3.setVisibility(View.INVISIBLE);
+                mark3= (TextView) findViewById(R.id.Mark3);
+                mark3.setVisibility(View.INVISIBLE);
 
                 countDownTimer.start();
                 if (next == 1) {
@@ -298,11 +323,11 @@ public class Start extends AppCompatActivity {
                 scoretext.setVisibility(View.INVISIBLE);
                 congrate = findViewById(R.id.congrate);
                 congrate.setVisibility(View.VISIBLE);
-                String str = Integer.toString(countscore);
-                finishT.setText("  Your score \n\n " + str);
+                double x = (countscore/countnext)*100;
+                String str = Double.toString(x);
+                finishT.setText("  Your score \n\n " + str+" % ");
                 buttonbackhome = findViewById(R.id.btnbackhome);
                 buttonbackhome.setVisibility(View.VISIBLE);
-
                 // set visible time
                 time.setVisibility(View.INVISIBLE);
             }
@@ -311,15 +336,21 @@ public class Start extends AppCompatActivity {
 
     void scoreview() {
         score = findViewById(R.id.Score);
-       // String str = Integer.toString(countscore);
-        int temp;
-        temp = countscore + 1;
-        score.setText(String.valueOf(temp));
+        String str = Integer.toString(countscore);
+        score.setText(String.valueOf(str));
     }
 
     void click() {
-        click = MediaPlayer.create(Start.this, R.raw.btnclick);
+        click = MediaPlayer.create(Start.this, R.raw.keyboard_tap);
         click.start();
+    }
+    void pass(){
+        pass = MediaPlayer.create(Start.this, R.raw.correct);
+        pass.start();
+    }
+    void wrong(){
+        wrong = MediaPlayer.create(Start.this,R.raw.wrong_multi_choice);
+        wrong.start();
     }
 
     void back() {

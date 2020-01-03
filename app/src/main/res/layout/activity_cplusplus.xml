@@ -205,7 +205,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
-            android:background="@drawable/congrate"
             android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="49dp" />

@@ -12,11 +12,11 @@ import java.util.concurrent.TimeUnit;
 
 
 
+
 public class MainActivity extends AppCompatActivity {
  Button buttonstart;
  Button buttonhelp;
-
-    MediaPlayer sound;
+ MediaPlayer click;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         buttonstart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click();
                 Intent intent= new Intent(MainActivity.this, Languages.class);
                 startActivity(intent);
             }
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         buttonhelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click();
                 Intent intent= new Intent(MainActivity.this, Help.class);
                 startActivity(intent);
 
@@ -52,6 +54,10 @@ public class MainActivity extends AppCompatActivity {
     void close() {
         finish();
         System.exit(0);
+    }
+    void click() {
+        click = MediaPlayer.create(MainActivity.this, R.raw.keyboard_tap);
+        click.start();
     }
 
 }
