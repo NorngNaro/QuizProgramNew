@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Cplusplus extends AppCompatActivity {
@@ -26,9 +26,13 @@ public class Cplusplus extends AppCompatActivity {
     MediaPlayer click;
     Random random = new Random();
     int count =random.nextInt(8);
-    int countscore=0;
+    int countscore = 0;
     double countnext=1;
     int next ;
+
+    // do the time
+    CountDownTimer countDownTimer;
+    TextView time;
     String [] Quiz = {"The default access specifer for the class members is","Which of the following is not the keyword in C++?","Who is Designer of C++ programming language?"
             ,"Which operator is used to resolve the scope of the global variable?","A single line comment in C++ language source code can begin with _____",
     "Which is not a correct variable type in C++ ?","In C++, the keyword void is used to","Which of the following operators could be overloaded?"};
@@ -51,133 +55,192 @@ public class Cplusplus extends AppCompatActivity {
         fini();
         nextq();
         // timer(max,min);
-        setButtonch3();
-        setButtonch1();
-        setButtonch2();
+        setButton1();
+        setButton2();
+        setButton3();
         back();
-        button=(Button) findViewById(R.id.btnnext);
+        timer();
+        button= findViewById(R.id.btnnext);
         button.setEnabled(false);
 
-        score= (TextView) findViewById(R.id.Score);
+        score= findViewById(R.id.Score);
         score.setText("0");
         next=0;
-        quiz= (TextView)findViewById(R.id.Quiz);
+        quiz= findViewById(R.id.Quiz);
         quiz.setText(Quiz[count]);
-        buttonch1=(Button) findViewById(R.id.btnchoose1);
+        buttonch1= findViewById(R.id.btnchoose1);
         buttonch1.setText(button1[count]);
-        buttonch2=(Button) findViewById(R.id.btnchoose2);
+        buttonch2= findViewById(R.id.btnchoose2);
         buttonch2.setText(button2[count]);
-        buttonch3=(Button) findViewById(R.id.btnchoose3);
+        buttonch3= findViewById(R.id.btnchoose3);
         buttonch3.setText(button3[count]);
     }
-    void fini(){
-        buttonfi=(Button) findViewById(R.id.btnfinish);
-        buttonfi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finishT=(TextView) findViewById(R.id.finish);
-                finishT.setVisibility( View.VISIBLE);
-                buttonch1.setVisibility( View.INVISIBLE);
-                buttonch2.setVisibility( View.INVISIBLE);
-                buttonch3.setVisibility( View.INVISIBLE);
-                quiz.setVisibility( View.INVISIBLE);
-                buttonfi.setVisibility(View.INVISIBLE);
-                button=(Button)findViewById(R.id.btnnext);
-                button.setVisibility(View.INVISIBLE);
-                score.setVisibility(View.INVISIBLE);
-                scoretext=(TextView) findViewById(R.id.scoretext);
-                scoretext.setVisibility( View.INVISIBLE);
-                congrate=(TextView) findViewById(R.id.congrate);
-                congrate.setVisibility( View.VISIBLE);
-                String str=Integer.toString(countscore);
-                finishT.setText("  Your score \n\n "      +str);
-                buttonbackhome=(Button)findViewById(R.id.btnbackhome);
-                buttonbackhome.setVisibility(View.VISIBLE);
-
-            }
-        });
-    }
-    void setButtonch1(){
-        buttonch1=(Button) findViewById(R.id.btnchoose1);
+    int countButton = 0;
+    void setButton1(){
+        buttonch1= findViewById(R.id.btnchoose1);
         buttonch1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                button=(Button) findViewById(R.id.btnnext);
+                button= findViewById(R.id.btnnext);
                 button.setEnabled(true);
+                countDownTimer.cancel();
                 next=1;
                 if( button1[count].equals( Correct[count])){
                     click();
                     buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
-                    countscore++;
                     countnext++;
-                    scoreview();
+                    if(countButton == 0)
+                        scoreview();
                 }else {
                     click();
                     buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
                 }
+
                 buttonch3.setEnabled(false);
                 buttonch2.setEnabled(false);
-            }
-        });
-    }
-    void setButtonch3(){
-        buttonch3=(Button) findViewById(R.id.btnchoose3);
-        buttonch3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                button=(Button) findViewById(R.id.btnnext);
-                button.setEnabled(true);
-                next=1;
-                if( button3[count].equals( Correct[count])){
-                    click();
+
+                if (button2[count].equals(Correct[count])){
+                    buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                }else if(button3[count].equals(Correct[count])){
                     buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
-                    countscore++;
-                    countnext++;
-                    scoreview();
-                }else {
-                    click();
-                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
                 }
-                buttonch2.setEnabled(false);
-                buttonch1.setEnabled(false);
             }
         });
-
     }
 
-    void setButtonch2(){
-        buttonch2=(Button) findViewById(R.id.btnchoose2);
+
+    void setButton2(){
+        buttonch2= findViewById(R.id.btnchoose2);
         buttonch2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                button=(Button) findViewById(R.id.btnnext);
+                button= findViewById(R.id.btnnext);
                 button.setEnabled(true);
+                countDownTimer.cancel();
                 next=1;
                 if( button2[count].equals(Correct[count])){
-                    button=(Button) findViewById(R.id.btnnext);
+                    button= findViewById(R.id.btnnext);
                     button.setEnabled(true);
                     click();
                     buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
-                    countscore++;
                     countnext++;
-                    scoreview();
+                    if(countButton == 0)
+                        scoreview();
                 }else {
                     click();
                     buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
                 }
                 buttonch1.setEnabled(false);
                 buttonch3.setEnabled(false);
+
+                if (button1[count].equals(Correct[count])){
+                    buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                }else if(button3[count].equals(Correct[count])){
+                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                }
             }
         });
     }
 
+    void setButton3(){
+        buttonch3= findViewById(R.id.btnchoose3);
+        buttonch3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                button= findViewById(R.id.btnnext);
+                button.setEnabled(true);
+                countDownTimer.cancel();
+                next=1;
+                if( button3[count].equals( Correct[count])){
+                    click();
+                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                    countnext++;
+                    if(countButton == 0)
+                        scoreview();
+                }else {
+                    click();
+                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.setwrong));
+                }
+                buttonch2.setEnabled(false);
+                buttonch1.setEnabled(false);
+
+                if (button2[count].equals(Correct[count])){
+                    buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                }else if(button1[count].equals(Correct[count])){
+                    buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.setcorrect));
+                }
+            }
+        });
+
+    }
+
+
+    void fini(){
+        buttonfi= findViewById(R.id.btnFinishCpp);
+        buttonfi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finishT= findViewById(R.id.finish);
+                finishT.setVisibility( View.VISIBLE);
+                buttonch1.setVisibility( View.INVISIBLE);
+                buttonch2.setVisibility( View.INVISIBLE);
+                buttonch3.setVisibility( View.INVISIBLE);
+                quiz.setVisibility( View.INVISIBLE);
+                buttonfi.setVisibility(View.INVISIBLE);
+                button= findViewById(R.id.btnnext);
+                button.setVisibility(View.INVISIBLE);
+                score.setVisibility(View.INVISIBLE);
+                scoretext= findViewById(R.id.scoretext);
+                scoretext.setVisibility( View.INVISIBLE);
+                congrate= findViewById(R.id.congrate);
+                congrate.setVisibility( View.VISIBLE);
+                String str=Integer.toString(countscore);
+                finishT.setText("  Your score \n\n "      +str);
+                buttonbackhome= findViewById(R.id.btnbackhome);
+                buttonbackhome.setVisibility(View.VISIBLE);
+
+                time.setVisibility(View.INVISIBLE);
+            }
+        });
+    }
+
+    void timer(){
+        countDownTimer = new CountDownTimer(30000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                time = findViewById(R.id.time);
+                time.setText("Time: " + millisUntilFinished / 1000);
+            }
+            public void onFinish() {
+                time = findViewById(R.id.time);
+                time.setText("Time out");
+                time.getResources().getDrawable(R.drawable.timeout);
+                buttonch1 = findViewById(R.id.btnchoose1);
+                buttonch1.setEnabled(false);
+                buttonch2 = findViewById(R.id.btnchoose2);
+                buttonch2.setEnabled(false);
+                buttonch3 = findViewById(R.id.btnchoose3);
+                buttonch3.setEnabled(false);
+
+                button = findViewById(R.id.btnnext);
+                button.setEnabled(true);
+            }
+        }.start();
+    }
     void nextq(){
-        button=(Button) findViewById(R.id.btnnext);
+        button= findViewById(R.id.btnnext);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                button=(Button) findViewById(R.id.btnnext);
+                button= findViewById(R.id.btnnext);
                 button.setEnabled(false);
+
+                buttonch1 = findViewById(R.id.btnchoose1);
+                buttonch1.setEnabled(true);
+                buttonch2 = findViewById(R.id.btnchoose2);
+                buttonch2.setEnabled(true);
+                buttonch3 = findViewById(R.id.btnchoose3);
+                buttonch3.setEnabled(true);
+                countDownTimer.start();
                 if(next==1){
                     click();
                     next=0;
@@ -188,32 +251,32 @@ public class Cplusplus extends AppCompatActivity {
                     buttonch1.setEnabled(true);
                     buttonch2.setEnabled(true);
                     buttonch3.setEnabled(true);
-                    quiz= (TextView)findViewById(R.id.Quiz);
+                    quiz= findViewById(R.id.Quiz);
                     quiz.setText(Quiz[count]);
-                    buttonch1=(Button) findViewById(R.id.btnchoose1);
+                    buttonch1= findViewById(R.id.btnchoose1);
                     buttonch1.setText(button1[count]);
-                    buttonch2=(Button) findViewById(R.id.btnchoose2);
+                    buttonch2= findViewById(R.id.btnchoose2);
                     buttonch2.setText(button2[count]);
-                    buttonch3=(Button) findViewById(R.id.btnchoose3);
+                    buttonch3= findViewById(R.id.btnchoose3);
                     buttonch3.setText(button3[count]);
                 }else {
                     click();
                 }
-
             }
         });
     }
     void scoreview(){
-        score= (TextView) findViewById(R.id.Score);
-        String str=Integer.toString(countscore);
-        score.setText(str);
+        score= findViewById(R.id.Score);
+       int temp = countscore + 1;
+        score.setText(String.valueOf(temp));
     }
+
     void click(){
         click = MediaPlayer.create(Cplusplus.this,R.raw.btnclick);
         click.start();
     }
     void back (){
-        button = (Button) findViewById(R.id.btnbackhome);
+        button = findViewById(R.id.btnbackhome);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

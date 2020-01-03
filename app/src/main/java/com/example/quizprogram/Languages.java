@@ -21,7 +21,7 @@ public class Languages extends AppCompatActivity {
         buttonjava();
     }
     void btnc (){
-        buttonc = (Button) findViewById(R.id.btnc);
+        buttonc = findViewById(R.id.btnc);
         buttonc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +32,7 @@ public class Languages extends AppCompatActivity {
         });
     }
     void buttoncplus (){
-        buttoncplus = (Button) findViewById(R.id.btncplus);
+        buttoncplus = findViewById(R.id.btncplus);
         buttoncplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +42,7 @@ public class Languages extends AppCompatActivity {
         });
     }
     void buttonjava (){
-        buttonjava = (Button) findViewById(R.id.btnjava);
+        buttonjava = findViewById(R.id.btnjava);
         buttonjava.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

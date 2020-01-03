@@ -15,7 +15,7 @@ Button button;
         back();
     }
     public void back() {
-        button = (Button) findViewById(R.id.btnhelpback);
+        button = findViewById(R.id.btnhelpback);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
