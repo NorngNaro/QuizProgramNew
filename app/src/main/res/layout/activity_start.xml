@@ -7,8 +7,20 @@
     android:layout_height="match_parent"
     android:background="@color/ColorBackGround"
     tools:context=".Start">
+    <TextView
+        android:id="@+id/congrate"
+        android:layout_width="405dp"
+        android:layout_height="733dp"
+        android:visibility="invisible"
+        android:background="@drawable/finish"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.354"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="404dp"
         android:layout_height="47dp"
         android:layout_marginBottom="47dp"
@@ -107,8 +119,10 @@
         android:foregroundGravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.402">
 
         <TextView
             android:id="@+id/finish"
@@ -117,14 +131,14 @@
             android:foregroundGravity="center"
             android:gravity="center"
             android:text=""
-            android:textColor="@color/colorText"
+            android:textColor="#ffff"
             android:textSize="30dp"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.263" />
+            app:layout_constraintVertical_bias="0.371" />
 
         <Button
             android:id="@+id/btnchoose2"
@@ -212,10 +226,10 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.972"
-            app:layout_constraintStart_toStartOf="@+id/congrate"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.546" />
+            app:layout_constraintVertical_bias="0.541" />
 
         <TextView
             android:id="@+id/Cross"
@@ -240,10 +254,11 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.972"
-            app:layout_constraintStart_toStartOf="@+id/congrate"
+            app:layout_constraintHorizontal_bias="1.0"
+
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.709" />
+            app:layout_constraintVertical_bias="0.707" />
 
         <TextView
             android:id="@+id/Cross2"
@@ -268,10 +283,11 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.972"
-            app:layout_constraintStart_toStartOf="@+id/congrate"
+            app:layout_constraintHorizontal_bias="1.0"
+
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.872" />
+            app:layout_constraintVertical_bias="0.87" />
 
         <TextView
             android:id="@+id/Cross3"
@@ -286,14 +302,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.901" />
-        <TextView
-            android:id="@+id/congrate"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            tools:layout_editor_absoluteX="51dp"
-            tools:layout_editor_absoluteY="82dp" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

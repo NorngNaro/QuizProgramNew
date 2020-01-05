@@ -237,23 +237,24 @@ public class Java extends AppCompatActivity {
         buttonfi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finishT = findViewById(R.id.finish);
+                finishT = (TextView) findViewById(R.id.finish);
                 finishT.setVisibility(View.VISIBLE);
                 buttonch1.setVisibility(View.INVISIBLE);
                 buttonch2.setVisibility(View.INVISIBLE);
                 buttonch3.setVisibility(View.INVISIBLE);
                 quiz.setVisibility(View.INVISIBLE);
                 buttonfi.setVisibility(View.INVISIBLE);
-                button = findViewById(R.id.btnnext);
+                button = (Button) findViewById(R.id.btnnext);
                 button.setVisibility(View.INVISIBLE);
                 score.setVisibility(View.INVISIBLE);
-                scoretext = findViewById(R.id.scoretext);
+                scoretext =(TextView) findViewById(R.id.scoretext);
                 scoretext.setVisibility(View.INVISIBLE);
-                congrate = findViewById(R.id.congrate);
-                congrate.setVisibility(View.VISIBLE);
-                String str = Integer.toString(countscore);
-                finishT.setText("  Your score \n\n " + str);
-                buttonbackhome = findViewById(R.id.btnbackhome);
+                //congrate =(TextView) findViewById(R.id.congrate);
+                //congrate.setVisibility(View.VISIBLE);
+                //String str = Integer.toString(countscore);
+
+              finishT.setText("  Your score \n\n " + Integer.toString(countscore));
+                buttonbackhome =(Button) findViewById(R.id.btnbackhome);
                 buttonbackhome.setVisibility(View.VISIBLE);
 
                 time.setVisibility(View.INVISIBLE);
@@ -263,8 +264,8 @@ public class Java extends AppCompatActivity {
 
     void scoreView(){
         score= findViewById(R.id.Score);
-        int temp = countscore + 1;
-        score.setText(String.valueOf(temp));
+        countscore = countscore + 1;
+        score.setText(String.valueOf(countscore));
     }
     void click(){
         click = MediaPlayer.create(Java.this,R.raw.btnclick);

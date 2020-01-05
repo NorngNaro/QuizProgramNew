@@ -31,12 +31,14 @@ public class Start extends AppCompatActivity {
     TextView time;
     MediaPlayer click;
     MediaPlayer pass;
+    MediaPlayer achievement;
     MediaPlayer wrong;
     CountDownTimer countDownTimer;
     Random random = new Random();
-    int count = random.nextInt(14);
+    int count = 1;
     int countscore = 0;
-    double countnext = 1;
+    int countnext = 1;
+    int Wrong=0;
     int next;
     String[] Quiz = {"How many main () function we can have in our project?",
             "Which programming language is more faster among these?",
@@ -149,11 +151,11 @@ public class Start extends AppCompatActivity {
                     pass();
                     mark= (TextView) findViewById(R.id.Mark);
                     mark.setVisibility(View.VISIBLE);
-                    countnext++;
                     countscore++;
                     scoreview();
                 } else {
                     wrong();
+                    Wrong++;
                     cross= (TextView) findViewById(R.id.Cross);
                     cross.setVisibility(View.VISIBLE);
                 }
@@ -191,9 +193,9 @@ public class Start extends AppCompatActivity {
                     mark2.setVisibility(View.VISIBLE);
                     countscore++;
                     scoreview();
-                    countnext++;
                 } else {
                     wrong();
+                    Wrong++;
                     cross2= (TextView) findViewById(R.id.Cross2);
                     cross2.setVisibility(View.VISIBLE);
                 }
@@ -225,13 +227,13 @@ public class Start extends AppCompatActivity {
                     pass();
                     mark3= (TextView) findViewById(R.id.Mark3);
                     mark3.setVisibility(View.VISIBLE);
-                    countnext++;
-                     countscore++;
+                    countscore++;
                     scoreview();
                    /* if(countButton == 0) // count only one time for our score.
                         scoreview();*/
                 } else {
                     wrong();
+                    Wrong++;
                     cross3= (TextView) findViewById(R.id.Cross3);
                     cross3.setVisibility(View.VISIBLE);
                 }
@@ -256,7 +258,9 @@ public class Start extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                click();
+                countnext++;
+                count++;
                 button = findViewById(R.id.btnnext);
                 button.setEnabled(false);
                 buttonch1 = findViewById(R.id.btnchoose1);
@@ -280,23 +284,24 @@ public class Start extends AppCompatActivity {
 
                 countDownTimer.start();
                 if (next == 1) {
-                    click();
-                    next = 0;
-                    buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.question));
-                    buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.question));
-                    buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.question));
-                    count = random.nextInt(14);
-                    buttonch1.setEnabled(true);
-                    buttonch2.setEnabled(true);
-                    buttonch3.setEnabled(true);
-                    quiz = findViewById(R.id.Quiz);
-                    quiz.setText(Quiz[count]);
-                    buttonch1 = findViewById(R.id.btnchoose1);
-                    buttonch1.setText(button1[count]);
-                    buttonch2 = findViewById(R.id.btnchoose2);
-                    buttonch2.setText(button2[count]);
-                    buttonch3 = findViewById(R.id.btnchoose3);
-                    buttonch3.setText(button3[count]);
+                        click();
+                        next = 0;
+                        buttonch1.setBackgroundDrawable(getResources().getDrawable(R.drawable.question));
+                        buttonch2.setBackgroundDrawable(getResources().getDrawable(R.drawable.question));
+                        buttonch3.setBackgroundDrawable(getResources().getDrawable(R.drawable.question));
+                       // count = random.nextInt(14);
+                        buttonch1.setEnabled(true);
+                        buttonch2.setEnabled(true);
+                        buttonch3.setEnabled(true);
+                        quiz = findViewById(R.id.Quiz);
+                        quiz.setText(Quiz[count]);
+                        buttonch1 = findViewById(R.id.btnchoose1);
+                        buttonch1.setText(button1[count]);
+                        buttonch2 = findViewById(R.id.btnchoose2);
+                        buttonch2.setText(button2[count]);
+                        buttonch3 = findViewById(R.id.btnchoose3);
+                        buttonch3.setText(button3[count]);
+
                 } else {
                     click();
                 }
@@ -309,6 +314,9 @@ public class Start extends AppCompatActivity {
         buttonfi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click();
+                if(next==1){
+                    achievement();
                 finishT = findViewById(R.id.finish);
                 finishT.setVisibility(View.VISIBLE);
                 buttonch1.setVisibility(View.INVISIBLE);
@@ -323,13 +331,28 @@ public class Start extends AppCompatActivity {
                 scoretext.setVisibility(View.INVISIBLE);
                 congrate = findViewById(R.id.congrate);
                 congrate.setVisibility(View.VISIBLE);
-                double x = (countscore/countnext)*100;
-                String str = Double.toString(x);
-                finishT.setText("  Your score \n\n " + str+" % ");
+                String strscore = Integer.toString(countscore);
+                String strnext = Integer.toString(countnext);
+                String strwrong = Integer.toString(Wrong);
+                finishT.setText("Total Question: "+strnext +"\n Correct:  " + strscore+"\n Wrong: "+strwrong);
                 buttonbackhome = findViewById(R.id.btnbackhome);
                 buttonbackhome.setVisibility(View.VISIBLE);
                 // set visible time
                 time.setVisibility(View.INVISIBLE);
+                mark= (TextView) findViewById(R.id.Mark);
+                mark.setVisibility(View.INVISIBLE);
+                mark2= (TextView) findViewById(R.id.Mark2);
+                mark2.setVisibility(View.INVISIBLE);
+                mark3= (TextView) findViewById(R.id.Mark3);
+                mark3.setVisibility(View.INVISIBLE);
+                cross = (TextView) findViewById(R.id.Cross);
+                cross.setVisibility(View.INVISIBLE);
+                cross2= (TextView) findViewById(R.id.Cross2);
+                cross2.setVisibility(View.INVISIBLE);
+                cross3= (TextView) findViewById(R.id.Cross3);
+                cross3.setVisibility(View.INVISIBLE);
+                }
+
             }
         });
     }
@@ -350,6 +373,10 @@ public class Start extends AppCompatActivity {
     }
     void wrong(){
         wrong = MediaPlayer.create(Start.this,R.raw.wrong_multi_choice);
+        wrong.start();
+    }
+    void achievement(){
+        wrong = MediaPlayer.create(Start.this,R.raw.achievement);
         wrong.start();
     }
 
