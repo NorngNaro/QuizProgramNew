@@ -129,7 +129,7 @@ public class Start extends AppCompatActivity {
         score.setText("0");
         next = 0;
         quiz = findViewById(R.id.Quiz);
-        quiz.setText(Quiz[count]);
+        quiz.setText(Quiz[count]); // Question table is visitable.
         buttonch1 = findViewById(R.id.btnchoose1);
         buttonch1.setText(button1[count]);
         buttonch2 = findViewById(R.id.btnchoose2);
@@ -411,6 +411,7 @@ public class Start extends AppCompatActivity {
                 buttonch3.setEnabled(false);
                 button = findViewById(R.id.btnnext);
                 button.setEnabled(true);
+                Wrong++;
             }
         }.start();
     }

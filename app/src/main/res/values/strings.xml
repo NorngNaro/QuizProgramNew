@@ -2,5 +2,5 @@
     <string name="app_name">QuizProgram</string>
     <string name="back">  Back </string>
     <string name="quiz">Quiz Programming</string>
-    <string name="about"> You need to choose the four answer below you hvae only one choise . When you choose the right answer you will get one score but if you choose wrong answer you do not get the score . </string>
+    <string name="about"> You need to choose the three answers below you have \n only one choice. When you choose the right answer you will get one score but if you choose the wrong answer you do not get the score. </string>
 </resources>
